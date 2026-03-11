@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000ef65-c86c-8000-9c66-011c48011c48_1354331</versionUuid>
+    <rule>
+        <name>LM_CalculateAnnualEntitlement</name>
+        <uuid>c4aa7ebf-5e96-4249-9326-6f9810932ecd</uuid>
+        <description>Determines an employee's annual leave entitlement based on their employment start date and leave type configuration.</description>
+        <parentUuid>6e1f948d-128b-4dfc-a9cf-8db86b90bd40</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!startDate: a!defaultValue(ri!employeeStartDate, today()),
+  local!defaultAllowance: a!defaultValue(ri!leaveTypeDefaultAllowance, 0),
+  
+  local!currentYear: year(today()),
+  local!currentYearStart: date(local!currentYear, 1, 1),
+  local!startYear: year(local!startDate),
+  
+  local!annualEntitlement: if(
+    local!startYear = local!currentYear,
+    local!monthsRemaining: 12 - (month(local!startDate) - 1),
+    local!proRatedEntitlement: (local!defaultAllowance / 12) * local!monthsRemaining,
+    round(local!proRatedEntitlement, 0),
+    local!defaultAllowance
+  ),
+  
+  local!annualEntitlement
+)
+</definition>
+        <namedTypedValue>
+            <name>employeeStartDate</name>
+            <description>Date when employee joined the organization</description>
+            <type>
+                <name>date</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>leaveTypeDefaultAllowance</name>
+            <description>Configured annual days for the leave type</description>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>muthuraman.kannan@wns.com</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000ef65-c86c-8000-9c66-011c48011c48_1354331"/>
+    </history>
+</contentHaul>

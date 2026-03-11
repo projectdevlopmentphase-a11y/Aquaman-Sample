@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<groupHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_e-0000ef65-c86c-8000-9bb1-01075c01075c_7197</versionUuid>
+    <group>
+        <name>LM Manager</name>
+        <securityMap>SECURITYMAP_TEAM</securityMap>
+        <uuid>_e-0000ef65-c86c-8000-9bb1-01075c01075c_7196</uuid>
+        <groupTypeUuid>SYSTEM_GROUP_TYPE_CUSTOM</groupTypeUuid>
+        <parentUuid>5a845c60-cf3a-447a-a554-045fea824923</parentUuid>
+        <description>Team leaders who review and approve/reject leave requests from direct reports and view team calendars</description>
+        <delegatedCreation>false</delegatedCreation>
+        <memberPolicy>MEMBERPOLICY_CLOSED</memberPolicy>
+        <viewingPolicy>VIEWINGPOLICY_LOW</viewingPolicy>
+        <attributes/>
+    </group>
+    <members>
+        <users/>
+        <groups/>
+    </members>
+    <admins>
+        <users/>
+        <groups/>
+    </admins>
+    <ruleSet/>
+    <history>
+        <historyInfo versionUuid="_e-0000ef65-c86c-8000-9bb1-01075c01075c_7197"/>
+    </history>
+</groupHaul>

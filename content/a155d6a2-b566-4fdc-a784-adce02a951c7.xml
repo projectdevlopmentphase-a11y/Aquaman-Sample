@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>ed3102e6-5e4b-4159-8027-94395fd97a61</versionUuid>
+    <interface>
+        <name>LM_EmployeeLeaveDashboard</name>
+        <uuid>a155d6a2-b566-4fdc-a784-adce02a951c7</uuid>
+        <description>Main landing page for employees to manage their leave requests and view balances</description>
+        <parentUuid>6e1f948d-128b-4dfc-a9cf-8db86b90bd40</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!alerts: {
+    a!map(
+      userFullName: "John Smith",
+      label: "Leave Request Update",
+      message: "Your annual leave request for March 15-19 has been approved",
+      timestamp: "02/20/2026 06:42:34 PM EST"
+    ),
+    a!map(
+      userFullName: "Sarah Johnson",
+      label: "Balance Alert",
+      message: "Your sick leave balance is running low - 2 days remaining",
+      timestamp: "03/14/2026 09:37:43 AM EST"
+    )
+  },
+  local!links: {
+    a!map(
+      icon: "file-text",
+      label: "Leave Policy Guide"
+    ),
+    a!map(
+      icon: "calendar",
+      label: "Holiday Calendar"
+    )
+  },
+  local!tasks: {
+    a!map(
+      assignedDate: "04/07/2026 01:10:16 AM EST",
+      assignees: "John Smith",
+      label: "Submit supporting documents for sick leave"
+    ),
+    a!map(
+      assignedDate: "02/09/2026 09:46:15 PM EST",
+      assignees: "Sarah Johnson",
+      label: "Review approved leave dates"
+    )
+  },
+
+#"SYSTEM_SYSRULES_headerContentLayout"(
+  header: #"SYSTEM_SYSRULES_cardLayout"(
+    contents: {
+       #"SYSTEM_SYSRULES_sideBySideLayout"(
+        items: {
+          #"SYSTEM_SYSRULES_sideBySideItem"(
+            width: "MINIMIZE",
+            item: #"SYSTEM_SYSRULES_richTextDisplayField"(
+              labelPosition: "COLLAPSED",
+              value: {
+                #"SYSTEM_SYSRULES_richTextItem_v1"(
+                  text: "Employee Leave Dashboard",
+                  size: "MEDIUM_PLUS"
+                )
+              },
+              marginBelow: "NONE",
+              align: "LEFT"
+            )
+          )
+        },
+        alignVertical: "TOP"
+      ) 
+    },
+    padding: "STANDARD",
+    marginBelow: "NONE",
+    showBorder: false,
+    style: "#2A3445",
+    height: "AUTO"
+  ),
+  contents: {
+    #"SYSTEM_SYSRULES_columnsLayout"(
+      columns: {
+        #"SYSTEM_SYSRULES_columnLayout"(
+          width: if(
+            #"SYSTEM_SYSRULES_isPageWidth"({ "TABLET_LANDSCAPE", "DESKTOP_NARROW" }),
+            "NARROW",
+            "NARROW_PLUS"
+          ),
+          contents: {
+            #"SYSTEM_SYSRULES_sectionLayout_v1"(
+              labelSize: "MEDIUM",
+              labelColor: "STANDARD",
+              labelHeadingTag: "H2",
+              contents: {
+                #"SYSTEM_SYSRULES_sideBySideLayout"(
+                  items: {
+                    #"SYSTEM_SYSRULES_sideBySideItem"(
+                      width: "MINIMIZE",
+                      item: #"SYSTEM_SYSRULES_richTextDisplayField"(
+                        labelPosition: "COLLAPSED",
+                        value: {
+                          #"SYSTEM_SYSRULES_richTextItem_v1"(
+                            text: "Alerts",
+                            style: "STRONG",
+                            size: "MEDIUM_PLUS"
+                          )
+                        }
+                      )
+                    ),
+                    #"SYSTEM_SYSRULES_sideBySideItem"(
+                      width: "MINIMIZE",
+                      item: #"SYSTEM_SYSRULES_tagField"(
+                        labelPosition: "COLLAPSED",
+                        tags: {
+                          #"SYSTEM_SYSRULES_tagItem_v1"(
+                            text: length(local!alerts),
+                            backgroundColor: "NEGATIVE"
+                          )
+                        },
+                        size: "SMALL"
+                      )
+                    )
+                  },
+                  alignVertical: "MIDDLE"
+                ),
+                #"SYSTEM_SYSRULES_forEach"(
+                  items: local!alerts,
+                  expression:    #"608e6df5-abc6-49ab-872b-cc3358f5ca71"(alert: fv!item)
+
+                )
+
+              },
+              marginBelow: "STANDARD"
+            ),
+            #"SYSTEM_SYSRULES_sectionLayout_v1"(
+              labelSize: "MEDIUM",
+              labelColor: "STANDARD",
+              labelHeadingTag: "H2",
+              contents: {
+                #"SYSTEM_SYSRULES_sideBySideLayout"(
+                  items: {
+                    #"SYSTEM_SYSRULES_sideBySideItem"(
+                      width: "MINIMIZE",
+                      item: #"SYSTEM_SYSRULES_richTextDisplayField"(
+                        labelPosition: "COLLAPSED",
+                        value: {
+                          #"SYSTEM_SYSRULES_richTextItem_v1"(
+                            text: "Tasks",
+                            style: "STRONG",
+                            size: "MEDIUM_PLUS"
+                          )
+                        }
+                      )
+                    ),
+                    #"SYSTEM_SYSRULES_sideBySideItem"(
+                      width: "MINIMIZE",
+                      item: #"SYSTEM_SYSRULES_tagField"(
+                        labelPosition: "COLLAPSED",
+                        tags: {
+                          #"SYSTEM_SYSRULES_tagItem_v1"(
+                            text: length(local!tasks),
+                            backgroundColor: "NEGATIVE"
+                          )
+                        },
+                        size: "SMALL"
+                      )
+                    )
+                  },
+                  alignVertical: "MIDDLE"
+                ),
+                #"SYSTEM_SYSRULES_forEach"(
+                  items: local!tasks,
+                  expression:    #"dcda05da-a64a-4ed6-a3ef-db2277f8754a"(task: fv!item)
+
+                )
+
+              },
+              marginBelow: "STANDARD"
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          width: "AUTO",
+          contents: {
+            #"SYSTEM_SYSRULES_sectionLayout_v1"(
+              label: "My Recent Leave Requests",
+              labelSize: "MEDIUM",
+              labelColor: "STANDARD",
+              labelHeadingTag: "H2",
+              contents: {
+                #"SYSTEM_SYSRULES_cardLayout"(
+                  contents: {
+                    #"SYSTEM_SYSRULES_gridField_v5"(
+                      label: "",
+                      labelPosition: "ABOVE",
+                      data: #"urn:appian:record-type:v1:395f8953-4168-4469-bc98-076fc835d6b5",
+                      columns: {
+                        #"SYSTEM_SYSRULES_gridColumn"(
+                          label: "Request ID",
+                          sortField: #"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/86b71287-b57b-46d7-9f4e-cfbdcb4fb890",
+                          value: #"SYSTEM_SYSRULES_linkField"(
+                            links: {
+                              #"SYSTEM_SYSRULES_recordLink"(
+                                label: fv!row[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/86b71287-b57b-46d7-9f4e-cfbdcb4fb890"],
+                                recordType: #"urn:appian:record-type:v1:395f8953-4168-4469-bc98-076fc835d6b5",
+                                identifier: fv!identifier
+                              )
+                            }
+                          )
+                        ),
+                        #"SYSTEM_SYSRULES_gridColumn"(
+                          label: "Leave Type",
+                          sortField: #"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/9fcc94f9-4862-4f15-a56d-953668727db8/9ed29b86-10ec-47d1-915e-028497da6b66",
+                          value: fv!row[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/9fcc94f9-4862-4f15-a56d-953668727db8/9ed29b86-10ec-47d1-915e-028497da6b66"]
+                        ),
+                        #"SYSTEM_SYSRULES_gridColumn"(
+                          label: "Start Date",
+                          sortField: #"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/97bccf76-afed-44fc-bba2-bce458296ab8",
+                          value: fv!row[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/97bccf76-afed-44fc-bba2-bce458296ab8"]
+                        ),
+                        #"SYSTEM_SYSRULES_gridColumn"(
+                          label: "End Date",
+                          sortField: #"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/1f362853-ed06-493a-b145-51c00c77ef0f",
+                          value: fv!row[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/1f362853-ed06-493a-b145-51c00c77ef0f"]
+                        ),
+                        #"SYSTEM_SYSRULES_gridColumn"(
+                          label: "Status",
+                          sortField: #"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/449d67b5-ed40-4d7d-b4c8-c8f02d576f2d/975edafb-dc8e-4f00-82eb-6fa3bcc7050c",
+                          value: fv!row[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/449d67b5-ed40-4d7d-b4c8-c8f02d576f2d/975edafb-dc8e-4f00-82eb-6fa3bcc7050c"]
+                        )
+                      },
+                      pageSize: 5,
+                      rowHeader: 1,
+                      showSearchBox: true,
+                      showRefreshButton: true,
+                      borderStyle: "LIGHT",
+                      shadeAlternateRows: false,
+                      refreshAfter: "RECORD_ACTION"
+                    )
+                  },
+                  shape: "SEMI_ROUNDED",
+                  padding: "LESS",
+                  marginBelow: "STANDARD",
+                  showBorder: true,
+                  style: "NONE",
+                  height: "AUTO"
+                )
+              },
+              marginBelow: "STANDARD"
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          width: if(
+            #"SYSTEM_SYSRULES_isPageWidth"({ "TABLET_LANDSCAPE", "DESKTOP_NARROW" }),
+            "NARROW",
+            "NARROW_PLUS"
+          ),
+          contents: {
+            #"SYSTEM_SYSRULES_sectionLayout_v1"(
+              label: "Quick Action",
+              labelSize: "MEDIUM",
+              labelColor: "STANDARD",
+              labelHeadingTag: "H2",
+              contents: {
+                #"SYSTEM_SYSRULES_recordActionField_v1"(
+                  actions: #"SYSTEM_SYSRULES_recordActionItem"(
+                    action: #"urn:appian:record-action:v1:395f8953-4168-4469-bc98-076fc835d6b5/23ef3042-4808-4da9-830a-bb2061bc17a0"
+                  ),
+                  style: "SIDEBAR",
+                  display: "LABEL_AND_ICON",
+                  align: "CENTER"
+                )
+              },
+              marginBelow: "STANDARD"
+            ),
+            #"SYSTEM_SYSRULES_sectionLayout_v1"(
+              label: "Quick Links",
+              labelSize: "MEDIUM",
+              labelColor: "STANDARD",
+              labelHeadingTag: "H2",
+              contents: {
+                #"SYSTEM_SYSRULES_forEach"(
+                  items: local!links,
+                  expression: #"SYSTEM_SYSRULES_richTextDisplayField"(
+                    labelPosition: "COLLAPSED",
+                    value: {
+                      #"SYSTEM_SYSRULES_richTextItem_v1"(
+                        text: {
+                          #"SYSTEM_SYSRULES_richTextIcon"(
+                            icon: fv!item.icon,
+                            color: "ACCENT"
+                          ),
+                          " ",
+                          fv!item.label
+                        },
+                        color: "ACCENT"
+                      )
+                    },
+                    marginBelow: "NONE",
+                    align: "LEFT"
+                  )
+                )
+
+              },
+              marginBelow: "STANDARD"
+            )
+          }
+        )
+      },
+      marginAbove: "STANDARD",
+      stackWhen: {
+        "TABLET_PORTRAIT",
+        "PHONE"
+      }
+    )
+  },
+  backgroundColor: "#fbfbfb"
+)
+)
+</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="ed3102e6-5e4b-4159-8027-94395fd97a61"/>
+    </history>
+</contentHaul>

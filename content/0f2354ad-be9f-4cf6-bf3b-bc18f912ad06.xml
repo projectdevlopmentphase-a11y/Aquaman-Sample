@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000ef65-c86c-8000-9c66-011c48011c48_1354356</versionUuid>
+    <rule>
+        <name>LM_DetermineLeaveEligibility</name>
+        <uuid>0f2354ad-be9f-4cf6-bf3b-bc18f912ad06</uuid>
+        <description>Evaluates if an employee is eligible for a specific leave type based on employment duration and leave type requirements.</description>
+        <parentUuid>6e1f948d-128b-4dfc-a9cf-8db86b90bd40</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!startDate: a!defaultValue(ri!employeeStartDate, today()),
+  local!leaveType: a!defaultValue(ri!leaveType, ""),
+  
+  local!employmentDurationMonths: tointeger((today() - local!startDate) / 30.44),
+  
+  local!eligibilityResult: if(
+    lower(trim(local!leaveType)) = "maternity/paternity leave",
+    if(
+      local!employmentDurationMonths &gt;= 12,
+      "Eligible",
+      "Not Eligible - Minimum 12 months employment required"
+    ),
+    "Eligible for all other leave types"
+  ),
+  
+  local!eligibilityResult
+)
+</definition>
+        <namedTypedValue>
+            <name>employeeStartDate</name>
+            <description>Date when the employee joined the organization</description>
+            <type>
+                <name>date</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>leaveType</name>
+            <description>Type of leave being requested (e.g., 'Maternity/Paternity Leave')</description>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>muthuraman.kannan@wns.com</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000ef65-c86c-8000-9c66-011c48011c48_1354356"/>
+    </history>
+</contentHaul>

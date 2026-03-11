@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recordTypeHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>0767b134-07b5-4519-bd45-cdd4108a15d8</versionUuid>
+  <recordType a:uuid="4ec99318-6b6d-4819-9391-9c6a588598ee" name="LM Employee">
+    <a:pluralName>LM Employees</a:pluralName>
+    <a:description>Stores data about Employees.</a:description>
+    <a:urlStub>UH2g4w</a:urlStub>
+    <a:source xsi:type="a:RecordsReplica"/>
+    <a:listViewTemplateExpr>#"SYSTEM_SYSRULES_recordGridField"(
+  columns: {
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: #"urn:appian:record-field-properties:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/53784dcb-0d15-428b-a754-e22f424360e3/displayName",
+      value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+        value: {
+          #"SYSTEM_SYSRULES_richTextItem_v1"(
+            text: if(
+              fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/53784dcb-0d15-428b-a754-e22f424360e3"] &lt; 100000,
+              text(
+                fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/53784dcb-0d15-428b-a754-e22f424360e3"],
+                "#00000"
+              ),
+              fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/53784dcb-0d15-428b-a754-e22f424360e3"]
+            ),
+            link: #"SYSTEM_SYSRULES_recordLink"(
+              recordType: #"urn:appian:record-type:v1:4ec99318-6b6d-4819-9391-9c6a588598ee",
+              identifier: fv!identifier
+            ),
+            linkStyle: "STANDALONE"
+          )
+        }
+      ),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/53784dcb-0d15-428b-a754-e22f424360e3"
+    ),
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: #"urn:appian:record-field-properties:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/d1146ca7-0141-472e-b51d-2ee8c4b2bb52/displayName",
+      value: a!defaultValue(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/d1146ca7-0141-472e-b51d-2ee8c4b2bb52"], "–"),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/d1146ca7-0141-472e-b51d-2ee8c4b2bb52"
+    ),
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: #"urn:appian:record-field-properties:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/b05a6db2-17a4-42f2-865c-dac9d4b9d5c3/displayName",
+      value: a!defaultValue(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/b05a6db2-17a4-42f2-865c-dac9d4b9d5c3"], "–"),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/b05a6db2-17a4-42f2-865c-dac9d4b9d5c3"
+    ),
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: #"urn:appian:record-field-properties:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/85ecb6b0-f4b8-4b64-b9fc-c32ee463abbf/displayName",
+      value: a!defaultValue(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/914dd338-52a4-4bd7-9d4d-9bcd748de94d/d1146ca7-0141-472e-b51d-2ee8c4b2bb52"], "–"),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/914dd338-52a4-4bd7-9d4d-9bcd748de94d/d1146ca7-0141-472e-b51d-2ee8c4b2bb52"
+    ),
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: #"urn:appian:record-field-properties:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/e915bce7-77cb-4945-9c1d-d40e86525267/displayName",
+      value: a!defaultValue(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/e915bce7-77cb-4945-9c1d-d40e86525267"], "–"),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/e915bce7-77cb-4945-9c1d-d40e86525267"
+    ),
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: #"urn:appian:record-field-properties:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/7712333e-76f2-4816-ab36-10495f530b2f/displayName",
+      value: a!defaultValue(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/7712333e-76f2-4816-ab36-10495f530b2f"], "–"),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/7712333e-76f2-4816-ab36-10495f530b2f"
+    ),
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: #"urn:appian:record-field-properties:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/568a9f01-55e4-44fc-ac27-b3ea8e56958c/displayName",
+      value: a!defaultValue(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/568a9f01-55e4-44fc-ac27-b3ea8e56958c"], "–"),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/568a9f01-55e4-44fc-ac27-b3ea8e56958c"
+    ),
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: #"urn:appian:record-field-properties:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/e25494e3-38c7-4c70-a96d-a5cd3cf21e59/displayName",
+      value: if(
+        isnull(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/e25494e3-38c7-4c70-a96d-a5cd3cf21e59"]),
+        "–",
+        #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: if(
+            fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/e25494e3-38c7-4c70-a96d-a5cd3cf21e59"],
+            #"SYSTEM_SYSRULES_richTextIcon"(
+              icon: "check",
+              altText: "Yes",
+              color: "#138901"
+            ),
+            #"SYSTEM_SYSRULES_richTextIcon"(
+              icon: "times",
+              altText: "No",
+              color: "SECONDARY"
+            )
+          )
+        )
+      ),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/e25494e3-38c7-4c70-a96d-a5cd3cf21e59",
+      align: "CENTER"
+    ),
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: "Created",
+      value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+        value: a!localVariables(
+          local!isUserValueBlank: isnull(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/9dd01e30-ec45-44cb-aa21-efe9f036f46e/SYSTEM_RECORD_TYPE_USER_FIELD_username"]),
+          local!isTimeValueBlank: isnull(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/cb6bb408-bd94-411e-bf65-fe28039df1cd"]),
+          if(
+            and(
+              local!isUserValueBlank,
+              local!isTimeValueBlank
+            ),
+            "–",
+            {
+              if(
+                local!isTimeValueBlank,
+                "–",
+                datetext(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/cb6bb408-bd94-411e-bf65-fe28039df1cd"], "default")
+              ),
+              char(10),
+              #"SYSTEM_SYSRULES_richTextItem_v1"(
+                text: if(
+                  local!isUserValueBlank,
+                  "–",
+                  user(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/9dd01e30-ec45-44cb-aa21-efe9f036f46e/SYSTEM_RECORD_TYPE_USER_FIELD_username"], "firstName") &amp; " " &amp; user(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/9dd01e30-ec45-44cb-aa21-efe9f036f46e/SYSTEM_RECORD_TYPE_USER_FIELD_username"], "lastName")
+                ),
+                color: "SECONDARY"
+              )
+            }
+          )
+        )
+      ),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/cb6bb408-bd94-411e-bf65-fe28039df1cd",
+      align: "START",
+      width: "NARROW_PLUS"
+    ),
+    #"SYSTEM_SYSRULES_gridColumn"(
+      label: "Modified",
+      value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+        value: a!localVariables(
+          local!isUserValueBlank: isnull(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/97b29932-b510-487d-9954-04a8c64581db/SYSTEM_RECORD_TYPE_USER_FIELD_username"]),
+          local!isTimeValueBlank: isnull(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/b56ce2fa-e0c8-44be-99e0-647a213ac406"]),
+          if(
+            and(
+              local!isUserValueBlank,
+              local!isTimeValueBlank
+            ),
+            "–",
+            {
+              if(
+                local!isTimeValueBlank,
+                "–",
+                datetext(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/b56ce2fa-e0c8-44be-99e0-647a213ac406"], "default")
+              ),
+              char(10),
+              #"SYSTEM_SYSRULES_richTextItem_v1"(
+                text: if(
+                  local!isUserValueBlank,
+                  "–",
+                  user(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/97b29932-b510-487d-9954-04a8c64581db/SYSTEM_RECORD_TYPE_USER_FIELD_username"], "firstName") &amp; " " &amp; user(fv!row[#"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/97b29932-b510-487d-9954-04a8c64581db/SYSTEM_RECORD_TYPE_USER_FIELD_username"], "lastName")
+                ),
+                color: "SECONDARY"
+              )
+            }
+          )
+        )
+      ),
+      sortField: #"urn:appian:record-field:v1:4ec99318-6b6d-4819-9391-9c6a588598ee/b56ce2fa-e0c8-44be-99e0-647a213ac406",
+      align: "START",
+      width: "NARROW_PLUS"
+    )
+  },
+  pageSize: 50,
+  borderStyle: "LIGHT",
+  shadeAlternateRows: false
+)</a:listViewTemplateExpr>
+    <a:fieldCfg a:uuid="1cca9a5e-e09f-4f25-a132-8dcb7c1e362e" name="LM Employee">
+      <a:description/>
+      <a:sourceRef>914dd338-52a4-4bd7-9d4d-9bcd748de94d/d1146ca7-0141-472e-b51d-2ee8c4b2bb52</a:sourceRef>
+      <a:isSortable>false</a:isSortable>
+      <a:isSearchable>false</a:isSearchable>
+      <a:isFacet>true</a:isFacet>
+      <a:facetType>CUSTOM_BUCKETS_CLOSED</a:facetType>
+      <a:isExclusiveFacet>true</a:isExclusiveFacet>
+      <a:facetLabelExpr>"Employee"</a:facetLabelExpr>
+      <a:sortOrderIndex>0</a:sortOrderIndex>
+      <a:facetOrderIndex>0</a:facetOrderIndex>
+      <a:visibilityExpr/>
+      <a:defaultOptionExpr/>
+      <a:allowMultipleSelections>true</a:allowMultipleSelections>
+      <a:relatedRecordFieldUuid>914dd338-52a4-4bd7-9d4d-9bcd748de94d/d1146ca7-0141-472e-b51d-2ee8c4b2bb52</a:relatedRecordFieldUuid>
+      <a:relatedRecordUserFilterSort>ASCENDING</a:relatedRecordUserFilterSort>
+    </a:fieldCfg>
+    <a:detailViewCfg>
+      <a:nameExpr>a!rtd_getDefaultSummaryViewName()</a:nameExpr>
+      <a:uiExpr>rule!LM_EmployeeSummary(rv!record)</a:uiExpr>
+      <a:visibilityExpr>fn!true()</a:visibilityExpr>
+      <a:urlStub>summary</a:urlStub>
+      <a:recordActionLaunchType>SAME_TAB</a:recordActionLaunchType>
+      <a:recordUiSecurityType>EXPRESSION</a:recordUiSecurityType>
+    </a:detailViewCfg>
+    <a:isSystem>false</a:isSystem>
+    <a:titleExpr>rv!record['recordType!{4ec99318-6b6d-4819-9391-9c6a588598ee}LM Employee.fields.{d1146ca7-0141-472e-b51d-2ee8c4b2bb52}department']</a:titleExpr>
+    <a:layoutType>GRID</a:layoutType>
+    <a:security>16383</a:security>
+    <a:hideLatestNews>false</a:hideLatestNews>
+    <a:hideNewsView>false</a:hideNewsView>
+    <a:hideRelatedActionsView>false</a:hideRelatedActionsView>
+    <a:isExportable>true</a:isExportable>
+    <a:recordRelationshipCfg>
+      <uuid>7440f388-1037-41cb-96c9-22f3d14189b7</uuid>
+      <relationshipName>leaveBalance</relationshipName>
+      <targetRecordTypeUuid>7339f65f-2b34-4dbf-a84d-e44f9f18cbea</targetRecordTypeUuid>
+      <relationshipType>ONE_TO_MANY</relationshipType>
+      <relationshipData>{"sourceRecordTypeFieldUuid":"53784dcb-0d15-428b-a754-e22f424360e3","targetRecordTypeFieldUuid":"aaaf7d7e-c3ac-4482-99e6-9f118c17f8ce","relationshipOperator":"1"}</relationshipData>
+      <updateBehavior>CASCADING</updateBehavior>
+    </a:recordRelationshipCfg>
+    <a:recordRelationshipCfg>
+      <uuid>4baa2ca0-39a1-4da2-bba5-f81994e13580</uuid>
+      <relationshipName>employeeIdEmployee</relationshipName>
+      <targetRecordTypeUuid>4ec99318-6b6d-4819-9391-9c6a588598ee</targetRecordTypeUuid>
+      <relationshipType>ONE_TO_MANY</relationshipType>
+      <relationshipData>{"sourceRecordTypeFieldUuid":"53784dcb-0d15-428b-a754-e22f424360e3","targetRecordTypeFieldUuid":"85ecb6b0-f4b8-4b64-b9fc-c32ee463abbf","relationshipOperator":"1"}</relationshipData>
+      <updateBehavior>CASCADING</updateBehavior>
+    </a:recordRelationshipCfg>
+    <a:recordRelationshipCfg>
+      <uuid>f282d0fa-22ad-4ef9-b5c2-60cb15f59099</uuid>
+      <relationshipName>balanceAdjustment</relationshipName>
+      <targetRecordTypeUuid>a239b204-10f6-4057-af3c-60be217680e9</targetRecordTypeUuid>
+      <relationshipType>ONE_TO_MANY</relationshipType>
+      <relationshipData>{"sourceRecordTypeFieldUuid":"53784dcb-0d15-428b-a754-e22f424360e3","targetRecordTypeFieldUuid":"1dc284ad-61e2-4f8f-989e-05c0d375682e","relationshipOperator":"1"}</relationshipData>
+      <updateBehavior>CASCADING</updateBehavior>
+    </a:recordRelationshipCfg>
+    <a:recordRelationshipCfg>
+      <uuid>07483fc4-55bb-426f-9e61-d5eac985fbf6</uuid>
+      <relationshipName>leaveRequest</relationshipName>
+      <targetRecordTypeUuid>395f8953-4168-4469-bc98-076fc835d6b5</targetRecordTypeUuid>
+      <relationshipType>ONE_TO_MANY</relationshipType>
+      <relationshipData>{"sourceRecordTypeFieldUuid":"53784dcb-0d15-428b-a754-e22f424360e3","targetRecordTypeFieldUuid":"0aac0120-dc90-41da-8426-3d7bf8d7ba89","relationshipOperator":"1"}</relationshipData>
+      <updateBehavior>CASCADING</updateBehavior>
+    </a:recordRelationshipCfg>
+    <a:recordRelationshipCfg>
+      <uuid>97b29932-b510-487d-9954-04a8c64581db</uuid>
+      <relationshipName>modifiedByUser</relationshipName>
+      <targetRecordTypeUuid>SYSTEM_RECORD_TYPE_USER</targetRecordTypeUuid>
+      <relationshipType>MANY_TO_ONE</relationshipType>
+      <relationshipData>{"sourceRecordTypeFieldUuid":"6689c74f-3ef6-4750-aed5-b9040d1c6775","targetRecordTypeFieldUuid":"SYSTEM_RECORD_TYPE_USER_FIELD_username","relationshipOperator":"1"}</relationshipData>
+      <updateBehavior>NON_CASCADING</updateBehavior>
+    </a:recordRelationshipCfg>
+    <a:recordRelationshipCfg>
+      <uuid>9dd01e30-ec45-44cb-aa21-efe9f036f46e</uuid>
+      <relationshipName>createdByUser</relationshipName>
+      <targetRecordTypeUuid>SYSTEM_RECORD_TYPE_USER</targetRecordTypeUuid>
+      <relationshipType>MANY_TO_ONE</relationshipType>
+      <relationshipData>{"sourceRecordTypeFieldUuid":"7052b1f9-2299-4efb-a1ba-ffcd63ae432c","targetRecordTypeFieldUuid":"SYSTEM_RECORD_TYPE_USER_FIELD_username","relationshipOperator":"1"}</relationshipData>
+      <updateBehavior>NON_CASCADING</updateBehavior>
+    </a:recordRelationshipCfg>
+    <a:recordRelationshipCfg>
+      <uuid>914dd338-52a4-4bd7-9d4d-9bcd748de94d</uuid>
+      <relationshipName>managerIdEmployee</relationshipName>
+      <targetRecordTypeUuid>4ec99318-6b6d-4819-9391-9c6a588598ee</targetRecordTypeUuid>
+      <relationshipType>MANY_TO_ONE</relationshipType>
+      <relationshipData>{"sourceRecordTypeFieldUuid":"85ecb6b0-f4b8-4b64-b9fc-c32ee463abbf","targetRecordTypeFieldUuid":"53784dcb-0d15-428b-a754-e22f424360e3","relationshipOperator":"1"}</relationshipData>
+      <updateBehavior>NON_CASCADING</updateBehavior>
+    </a:recordRelationshipCfg>
+    <a:listAutoRefreshInterval>0.0</a:listAutoRefreshInterval>
+    <a:sourceConfiguration>
+      <sourceUuid>LM_EMPLOYEE@jdbc/Appian</sourceUuid>
+      <sourceType>RDBMS_TABLE</sourceType>
+      <sourceSubType>NONE</sourceSubType>
+      <friendlyName>LM Employee</friendlyName>
+      <field>
+        <uuid>53784dcb-0d15-428b-a754-e22f424360e3</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Integer</type>
+        <sourceFieldName>EMPLOYEE_ID</sourceFieldName>
+        <sourceFieldType>INTEGER</sourceFieldType>
+        <fieldName>employeeId</fieldName>
+        <displayName>employeeId</displayName>
+        <isRecordId>true</isRecordId>
+        <isUnique>true</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>d1146ca7-0141-472e-b51d-2ee8c4b2bb52</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Text</type>
+        <sourceFieldName>DEPARTMENT</sourceFieldName>
+        <sourceFieldType>VARCHAR(255)</sourceFieldType>
+        <fieldName>department</fieldName>
+        <displayName>department</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>b05a6db2-17a4-42f2-865c-dac9d4b9d5c3</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Text</type>
+        <sourceFieldName>LAST_NAME</sourceFieldName>
+        <sourceFieldType>VARCHAR(255)</sourceFieldType>
+        <fieldName>lastName</fieldName>
+        <displayName>lastName</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>85ecb6b0-f4b8-4b64-b9fc-c32ee463abbf</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Integer</type>
+        <sourceFieldName>MANAGER_ID</sourceFieldName>
+        <sourceFieldType>INTEGER</sourceFieldType>
+        <fieldName>managerId</fieldName>
+        <displayName>managerId</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>e915bce7-77cb-4945-9c1d-d40e86525267</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Text</type>
+        <sourceFieldName>EMPLOYEE_NUMBER</sourceFieldName>
+        <sourceFieldType>VARCHAR(255)</sourceFieldType>
+        <fieldName>employeeNumber</fieldName>
+        <displayName>employeeNumber</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>7712333e-76f2-4816-ab36-10495f530b2f</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Text</type>
+        <sourceFieldName>EMAIL</sourceFieldName>
+        <sourceFieldType>VARCHAR(255)</sourceFieldType>
+        <fieldName>email</fieldName>
+        <displayName>email</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>568a9f01-55e4-44fc-ac27-b3ea8e56958c</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Text</type>
+        <sourceFieldName>FIRST_NAME</sourceFieldName>
+        <sourceFieldType>VARCHAR(255)</sourceFieldType>
+        <fieldName>firstName</fieldName>
+        <displayName>firstName</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>7052b1f9-2299-4efb-a1ba-ffcd63ae432c</uuid>
+        <type>{http://www.appian.com/ae/types/2009}User</type>
+        <sourceFieldName>CREATED_BY</sourceFieldName>
+        <sourceFieldType>VARCHAR(255)</sourceFieldType>
+        <fieldName>createdBy</fieldName>
+        <displayName>createdBy</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>cb6bb408-bd94-411e-bf65-fe28039df1cd</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Datetime</type>
+        <sourceFieldName>CREATED_ON</sourceFieldName>
+        <sourceFieldType>DATETIME</sourceFieldType>
+        <fieldName>createdOn</fieldName>
+        <displayName>createdOn</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>6689c74f-3ef6-4750-aed5-b9040d1c6775</uuid>
+        <type>{http://www.appian.com/ae/types/2009}User</type>
+        <sourceFieldName>MODIFIED_BY</sourceFieldName>
+        <sourceFieldType>VARCHAR(255)</sourceFieldType>
+        <fieldName>modifiedBy</fieldName>
+        <displayName>modifiedBy</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>b56ce2fa-e0c8-44be-99e0-647a213ac406</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Datetime</type>
+        <sourceFieldName>MODIFIED_ON</sourceFieldName>
+        <sourceFieldType>DATETIME</sourceFieldType>
+        <fieldName>modifiedOn</fieldName>
+        <displayName>modifiedOn</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <field>
+        <uuid>e25494e3-38c7-4c70-a96d-a5cd3cf21e59</uuid>
+        <type>{http://www.appian.com/ae/types/2009}Boolean</type>
+        <sourceFieldName>IS_ACTIVE</sourceFieldName>
+        <sourceFieldType>BOOLEAN</sourceFieldType>
+        <fieldName>isActive</fieldName>
+        <displayName>isActive</displayName>
+        <isRecordId>false</isRecordId>
+        <isUnique>false</isUnique>
+        <isCustomField>false</isCustomField>
+        <customFieldExpr xsi:nil="true"/>
+        <fieldCalculationType>NA</fieldCalculationType>
+        <fieldTemplateType>NA</fieldTemplateType>
+        <isIndexable>false</isIndexable>
+        <subType>NA</subType>
+        <displayNameSource>STATIC</displayNameSource>
+        <descriptionSource>STATIC</descriptionSource>
+        <compositePkPrecedence>-1</compositePkPrecedence>
+        <isHidden>false</isHidden>
+      </field>
+      <uuid>3d1f872d-b6dc-4175-a9d3-94820b981892</uuid>
+      <refreshSchedule>
+        <value>{"hour":3,"minute":"00","amPM":"AM","timeZone":"GMT","version":"v1"}</value>
+        <activated>false</activated>
+      </refreshSchedule>
+      <skipFailureEnabled>true</skipFailureEnabled>
+    </a:sourceConfiguration>
+    <a:enabledFeatures>1023</a:enabledFeatures>
+    <a:isVisibleInRecordTypeList>true</a:isVisibleInRecordTypeList>
+    <a:recordActionLaunchType>SAME_TAB</a:recordActionLaunchType>
+    <a:showSearchBox>true</a:showSearchBox>
+    <a:isVisibleInDataFabric>true</a:isVisibleInDataFabric>
+    <a:usesRollingSyncLimit>false</a:usesRollingSyncLimit>
+    <a:usesRecoverySync>false</a:usesRecoverySync>
+    <a:isScheduledIndexingEnabled>false</a:isScheduledIndexingEnabled>
+    <a:smartSearchAcceptableFailureRate>0.0</a:smartSearchAcceptableFailureRate>
+    <a:skipFailedSmartServicesSync>false</a:skipFailedSmartServicesSync>
+    <a:creationSource>COMPOSER</a:creationSource>
+  </recordType>
+  <roleMap>
+    <role name="record_type_administrator">
+      <users/>
+      <groups>
+        <groupUuid>b72c661a-3b28-4baa-933f-9de76974e18f</groupUuid>
+      </groups>
+    </role>
+    <role name="record_type_viewer">
+      <users/>
+      <groups>
+        <groupUuid>5a845c60-cf3a-447a-a554-045fea824923</groupUuid>
+      </groups>
+    </role>
+  </roleMap>
+  <history>
+    <historyInfo versionUuid="0767b134-07b5-4519-bd45-cdd4108a15d8"/>
+  </history>
+  <migrationVersion>1</migrationVersion>
+</recordTypeHaul>

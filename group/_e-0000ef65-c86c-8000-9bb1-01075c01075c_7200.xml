@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<groupHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_e-0000ef65-c86c-8000-9bb1-01075c01075c_7201</versionUuid>
+    <group>
+        <name>LM Employee</name>
+        <securityMap>SECURITYMAP_TEAM</securityMap>
+        <uuid>_e-0000ef65-c86c-8000-9bb1-01075c01075c_7200</uuid>
+        <groupTypeUuid>SYSTEM_GROUP_TYPE_CUSTOM</groupTypeUuid>
+        <parentUuid>5a845c60-cf3a-447a-a554-045fea824923</parentUuid>
+        <description>Staff members who can submit leave requests, view their leave history, and check remaining balances</description>
+        <delegatedCreation>false</delegatedCreation>
+        <memberPolicy>MEMBERPOLICY_CLOSED</memberPolicy>
+        <viewingPolicy>VIEWINGPOLICY_LOW</viewingPolicy>
+        <attributes/>
+    </group>
+    <members>
+        <users/>
+        <groups/>
+    </members>
+    <admins>
+        <users/>
+        <groups/>
+    </admins>
+    <ruleSet/>
+    <history>
+        <historyInfo versionUuid="_e-0000ef65-c86c-8000-9bb1-01075c01075c_7201"/>
+    </history>
+</groupHaul>

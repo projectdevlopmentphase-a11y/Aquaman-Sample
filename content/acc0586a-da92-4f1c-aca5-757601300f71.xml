@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>7e5cdd67-f629-42a2-8098-46b004c6b35e</versionUuid>
+    <interface>
+        <name>LM_LeaveRequestSummary</name>
+        <uuid>acc0586a-da92-4f1c-aca5-757601300f71</uuid>
+        <description>The interface used for your record view</description>
+        <parentUuid>6e1f948d-128b-4dfc-a9cf-8db86b90bd40</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_headerContentLayout"(
+  contents: {
+    #"SYSTEM_SYSRULES_columnsLayout"(
+      columns: {
+        #"SYSTEM_SYSRULES_columnLayout"(
+          showWhen: #"SYSTEM_SYSRULES_isPageWidth"({ "DESKTOP", "DESKTOP_WIDE" }),
+          contents: {}
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          width: "WIDE",
+          contents: {
+            #"SYSTEM_SYSRULES_sectionLayout_v1"(
+              label: "Details",
+              labelSize: "MEDIUM",
+              labelColor: "STANDARD",
+              contents: {
+                #"SYSTEM_SYSRULES_cardLayout"(
+                  contents: {
+                    #"SYSTEM_SYSRULES_columnsLayout"(
+                      columns: {
+                        #"SYSTEM_SYSRULES_columnLayout"(
+                          contents: {
+                            #"SYSTEM_SYSRULES_richTextDisplayField"(
+                              label: #"urn:appian:record-field-properties:v1:395f8953-4168-4469-bc98-076fc835d6b5/fedea652-6a34-4ad7-83f2-df92cde2dfc8/displayName",
+                              value: {
+                                a!defaultValue(
+                                  ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/9fcc94f9-4862-4f15-a56d-953668727db8/6135790e-2447-45dc-8f15-2b51e94b995a"],
+                                  "–"
+                                )
+                              }
+                            )
+                          }
+                        ),
+                        #"SYSTEM_SYSRULES_columnLayout"(
+                          contents: {
+                            #"SYSTEM_SYSRULES_richTextDisplayField"(
+                              label: #"urn:appian:record-field-properties:v1:395f8953-4168-4469-bc98-076fc835d6b5/1f362853-ed06-493a-b145-51c00c77ef0f/displayName",
+                              value: {
+                                if(
+                                  isnull(
+                                    ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/1f362853-ed06-493a-b145-51c00c77ef0f"]
+                                  ),
+                                  "–",
+                                  {
+                                    #"SYSTEM_SYSRULES_richTextIcon"(
+                                      icon: "calendar",
+                                      color: "SECONDARY"
+                                    ),
+                                    " ",
+                                    #"SYSTEM_SYSRULES_richTextItem_v1"(
+                                      text: text(
+                                        ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/1f362853-ed06-493a-b145-51c00c77ef0f"],
+                                        "mmmm d, yyyy"
+                                      )
+                                    )
+                                  }
+                                )
+                              }
+                            )
+                          }
+                        )
+                      }
+                    ),
+                    #"SYSTEM_SYSRULES_columnsLayout"(
+                      columns: {
+                        #"SYSTEM_SYSRULES_columnLayout"(
+                          contents: {
+                            #"SYSTEM_SYSRULES_richTextDisplayField"(
+                              label: #"urn:appian:record-field-properties:v1:395f8953-4168-4469-bc98-076fc835d6b5/e577ffa1-6e4e-4d11-8911-031061061ee9/displayName",
+                              value: {
+                                a!defaultValue(
+                                  ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/e577ffa1-6e4e-4d11-8911-031061061ee9"],
+                                  "–"
+                                )
+                              }
+                            )
+                          }
+                        ),
+                        #"SYSTEM_SYSRULES_columnLayout"(
+                          contents: {
+                            #"SYSTEM_SYSRULES_richTextDisplayField"(
+                              label: #"urn:appian:record-field-properties:v1:395f8953-4168-4469-bc98-076fc835d6b5/97bccf76-afed-44fc-bba2-bce458296ab8/displayName",
+                              value: {
+                                if(
+                                  isnull(
+                                    ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/97bccf76-afed-44fc-bba2-bce458296ab8"]
+                                  ),
+                                  "–",
+                                  {
+                                    #"SYSTEM_SYSRULES_richTextIcon"(
+                                      icon: "calendar",
+                                      color: "SECONDARY"
+                                    ),
+                                    " ",
+                                    #"SYSTEM_SYSRULES_richTextItem_v1"(
+                                      text: text(
+                                        ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/97bccf76-afed-44fc-bba2-bce458296ab8"],
+                                        "mmmm d, yyyy"
+                                      )
+                                    )
+                                  }
+                                )
+                              }
+                            )
+                          }
+                        )
+                      },
+                      marginAbove: "STANDARD"
+                    ),
+                    #"SYSTEM_SYSRULES_columnsLayout"(
+                      columns: {
+                        #"SYSTEM_SYSRULES_columnLayout"(
+                          contents: {
+                            #"SYSTEM_SYSRULES_richTextDisplayField"(
+                              label: #"urn:appian:record-field-properties:v1:395f8953-4168-4469-bc98-076fc835d6b5/fdf2664b-21c8-4e1e-8577-b56fb93311a4/displayName",
+                              value: {
+                                if(
+                                  isnull(
+                                    ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/fdf2664b-21c8-4e1e-8577-b56fb93311a4"]
+                                  ),
+                                  "–",
+                                  {
+                                    #"SYSTEM_SYSRULES_richTextIcon"(
+                                      icon: "calendar-o",
+                                      color: "SECONDARY"
+                                    ),
+                                    " ",
+                                    #"SYSTEM_SYSRULES_richTextItem_v1"(
+                                      text: text(
+                                        ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/fdf2664b-21c8-4e1e-8577-b56fb93311a4"],
+                                        "mmmm d, yyyy h:mm AM/PM"
+                                      )
+                                    )
+                                  }
+                                )
+                              }
+                            )
+                          }
+                        ),
+                        #"SYSTEM_SYSRULES_columnLayout"(
+                          contents: {
+                            #"SYSTEM_SYSRULES_richTextDisplayField"(
+                              label: #"urn:appian:record-field-properties:v1:395f8953-4168-4469-bc98-076fc835d6b5/0aac0120-dc90-41da-8426-3d7bf8d7ba89/displayName",
+                              value: {
+                                a!defaultValue(
+                                  ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/757ad836-cd37-4660-9938-949cab54095e/d1146ca7-0141-472e-b51d-2ee8c4b2bb52"],
+                                  "–"
+                                )
+                              }
+                            )
+                          }
+                        )
+                      },
+                      marginAbove: "STANDARD"
+                    ),
+                    #"SYSTEM_SYSRULES_columnsLayout"(
+                      columns: {
+                        #"SYSTEM_SYSRULES_columnLayout"(
+                          contents: {
+                            #"SYSTEM_SYSRULES_richTextDisplayField"(
+                              label: #"urn:appian:record-field-properties:v1:395f8953-4168-4469-bc98-076fc835d6b5/23ece036-d812-49aa-b16c-8d7dcf6f3dc9/displayName",
+                              value: {
+                                a!defaultValue(
+                                  ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/449d67b5-ed40-4d7d-b4c8-c8f02d576f2d/975edafb-dc8e-4f00-82eb-6fa3bcc7050c"],
+                                  "–"
+                                )
+                              }
+                            )
+                          }
+                        ),
+                        #"SYSTEM_SYSRULES_columnLayout"(
+                          contents: {}
+                        )
+                      },
+                      marginAbove: "STANDARD"
+                    )
+                  },
+                  shape: "SEMI_ROUNDED",
+                  padding: "STANDARD"
+                )
+              },
+              marginBelow: "MORE"
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          width: "MEDIUM",
+          contents: {
+            #"SYSTEM_SYSRULES_sectionLayout_v1"(
+              label: "Actions",
+              labelSize: "MEDIUM",
+              labelColor: "STANDARD",
+              contents: {
+                #"SYSTEM_SYSRULES_recordActionField_v1"(
+                  actions: {
+                    #"SYSTEM_SYSRULES_recordActionItem"(
+                      action: #"urn:appian:record-action:v1:395f8953-4168-4469-bc98-076fc835d6b5/6c4f385a-a756-424e-81c6-e21fec4ec60c",
+                      identifier: ri!leaveRequest[#"urn:appian:record-field:v1:395f8953-4168-4469-bc98-076fc835d6b5/86b71287-b57b-46d7-9f4e-cfbdcb4fb890"]
+                    )
+                  },
+                  style: "SIDEBAR_PRIMARY",
+                  display: "LABEL_AND_ICON",
+                  align: "CENTER"
+                )
+              },
+              marginBelow: "MORE"
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          showWhen: #"SYSTEM_SYSRULES_isPageWidth"({ "DESKTOP", "DESKTOP_WIDE" }),
+          contents: {}
+        )
+      },
+      marginAbove: if(
+        #"SYSTEM_SYSRULES_isNativeMobile"(),
+        "NONE",
+        if(
+          #"SYSTEM_SYSRULES_isPageWidth"({ "DESKTOP", "DESKTOP_WIDE" }),
+          "MORE",
+          "STANDARD"
+        )
+      ),
+      spacing: "SPARSE",
+      stackWhen: {
+        "TABLET_PORTRAIT",
+        "PHONE"
+      }
+    )
+  },
+  backgroundColor: "#fbfbfb"
+)</definition>
+        <namedTypedValue>
+            <name>leaveRequest</name>
+            <type>
+                <name>395f8953-4168-4469-bc98-076fc835d6b5</name>
+                <namespace>urn:com:appian:recordtype:datatype</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:description/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">#"SYSTEM_SYSRULES_queryRecordType_v4"(
+  recordType: #"urn:appian:record-type:v1:395f8953-4168-4469-bc98-076fc835d6b5",
+  fields: #"SYSTEM_SYSRULES_selectionFields"(
+    allFieldsFromRecordType: {
+      #"urn:appian:record-type:v1:395f8953-4168-4469-bc98-076fc835d6b5",
+      #"urn:appian:record-relationship:v1:395f8953-4168-4469-bc98-076fc835d6b5/f97fc0b2-06c2-4bc3-8e4e-4a657d8f5fdd",
+      #"urn:appian:record-relationship:v1:395f8953-4168-4469-bc98-076fc835d6b5/1cc34258-7f90-40b2-844a-8a6ba39fcc6e",
+      #"urn:appian:record-relationship:v1:395f8953-4168-4469-bc98-076fc835d6b5/757ad836-cd37-4660-9938-949cab54095e",
+      #"urn:appian:record-relationship:v1:395f8953-4168-4469-bc98-076fc835d6b5/9fcc94f9-4862-4f15-a56d-953668727db8",
+      #"urn:appian:record-relationship:v1:395f8953-4168-4469-bc98-076fc835d6b5/b2986ed2-d514-423f-9f97-51e6bb9a23a2",
+      #"urn:appian:record-relationship:v1:395f8953-4168-4469-bc98-076fc835d6b5/449d67b5-ed40-4d7d-b4c8-c8f02d576f2d",
+      #"urn:appian:record-relationship:v1:395f8953-4168-4469-bc98-076fc835d6b5/286d1b5d-5a3e-4061-95b2-3be870410c87"
+    }
+  ),
+  pagingInfo: #"SYSTEM_SYSRULES_pagingInfo"(
+    startIndex: 1,
+    batchSize: 1
+  )
+).data</a:value>
+                    <a:nameRef>leaveRequest</a:nameRef>
+                    <a:id>1</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="7e5cdd67-f629-42a2-8098-46b004c6b35e"/>
+    </history>
+</contentHaul>

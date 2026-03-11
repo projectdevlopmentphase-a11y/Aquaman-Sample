@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000ef65-c86c-8000-9c66-011c48011c48_1354326</versionUuid>
+    <rule>
+        <name>LM_AssessTeamCoverageImpact</name>
+        <uuid>1d957f96-ef29-43b2-b304-cd657497daef</uuid>
+        <description>Evaluates the impact of a leave request on team coverage by analyzing overlapping approved leaves during the requested period.</description>
+        <parentUuid>6e1f948d-128b-4dfc-a9cf-8db86b90bd40</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!startDate: a!defaultValue(ri!requestStartDate, today()),
+  local!endDate: a!defaultValue(ri!requestEndDate, today()),
+  local!teamSize: a!defaultValue(ri!teamSize, 1),
+  local!overlappingCount: a!defaultValue(ri!overlappingCount, 0),
+  
+  local!coverageImpactPercentage: if(
+    local!teamSize = 0,
+    0,
+    round((local!overlappingCount / local!teamSize) * 100, 2)
+  ),
+  
+  local!impactLevel: if(
+    local!coverageImpactPercentage &gt;= 50,
+    "High Risk",
+    if(
+      local!coverageImpactPercentage &gt;= 25,
+      "Medium Risk",
+      "Low Risk"
+    )
+  ),
+  
+  a!map(
+    "coverageImpactPercentage": local!coverageImpactPercentage,
+    "impactLevel": local!impactLevel
+  )
+)
+</definition>
+        <namedTypedValue>
+            <name>requestStartDate</name>
+            <description>Start date of the leave request</description>
+            <type>
+                <name>date</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>requestEndDate</name>
+            <description>End date of the leave request</description>
+            <type>
+                <name>date</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>teamSize</name>
+            <description>Total number of team members</description>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>overlappingCount</name>
+            <description>Number of team members with approved leave during the requested period</description>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>muthuraman.kannan@wns.com</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000ef65-c86c-8000-9c66-011c48011c48_1354326"/>
+    </history>
+</contentHaul>

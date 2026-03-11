@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<siteHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>2188fdfa-320f-462e-a6db-dd806702d628</versionUuid>
+  <site a:uuid="7fd06947-f34f-468b-934a-59b062d4e6ad" name="LM Leave Management">
+    <description>Site for Leave Management</description>
+    <urlStub>leave-management</urlStub>
+    <page a:uuid="12170d42-d216-4ecc-b3b7-9de3295b9c66">
+      <staticName>Employee Leave Dashboard</staticName>
+      <urlStub>employee-leave-dashboard</urlStub>
+      <uiObject a:uuid="a155d6a2-b566-4fdc-a784-adce02a951c7" xsi:type="a:ContentFreeformRule"/>
+      <visibilityExpr>fn!true()</visibilityExpr>
+      <pageWidth>FULL</pageWidth>
+      <areUrlParamsEncrypted>true</areUrlParamsEncrypted>
+      <autoContextUpdateEnabled>false</autoContextUpdateEnabled>
+      <siteBrandingEnabled>true</siteBrandingEnabled>
+      <darkThemeEnabled>false</darkThemeEnabled>
+    </page>
+    <page a:uuid="030eab96-60ba-4c73-9f77-810179a977cf">
+      <staticName>HR Admin Dashboard</staticName>
+      <urlStub>hr-admin-dashboard</urlStub>
+      <uiObject a:uuid="fdfda01c-0e23-42a4-a31f-e20d124f0176" xsi:type="a:ContentFreeformRule"/>
+      <visibilityExpr>fn!true()</visibilityExpr>
+      <pageWidth>FULL</pageWidth>
+      <areUrlParamsEncrypted>true</areUrlParamsEncrypted>
+      <autoContextUpdateEnabled>false</autoContextUpdateEnabled>
+      <siteBrandingEnabled>true</siteBrandingEnabled>
+      <darkThemeEnabled>false</darkThemeEnabled>
+    </page>
+    <page a:uuid="0e2df708-f68e-4647-94fe-94aafa714ac7">
+      <staticName>Reports and Dashboards</staticName>
+      <urlStub>reports-and-dashboards</urlStub>
+      <uiObject xsi:type="a:DataFabricInsightsHome"/>
+      <pageWidth>FULL</pageWidth>
+      <areUrlParamsEncrypted>true</areUrlParamsEncrypted>
+      <autoContextUpdateEnabled>false</autoContextUpdateEnabled>
+      <siteBrandingEnabled>true</siteBrandingEnabled>
+      <darkThemeEnabled>false</darkThemeEnabled>
+      <dfiSitePageConfig>
+        <contextType>FILTERED</contextType>
+        <contextRecordTypeUuids>
+          <uuid>395f8953-4168-4469-bc98-076fc835d6b5</uuid>
+          <uuid>885c015e-e1b4-4c25-a5fe-76f799a956b1</uuid>
+          <uuid>7339f65f-2b34-4dbf-a84d-e44f9f18cbea</uuid>
+          <uuid>ce884c49-2bb2-493b-8e5a-db151e249aa7</uuid>
+          <uuid>a239b204-10f6-4057-af3c-60be217680e9</uuid>
+          <uuid>4ec99318-6b6d-4819-9391-9c6a588598ee</uuid>
+          <uuid>3ab4bda6-482c-435c-a163-224ea581a6b4</uuid>
+        </contextRecordTypeUuids>
+      </dfiSitePageConfig>
+    </page>
+    <visibility>268435456</visibility>
+    <logoRef a:uuid="SYSTEM_CONTENT_SITES_DEFAULT_LOGO" xsi:type="a:CollaborationDocument"/>
+    <showName>false</showName>
+    <tempoLinkVisibility>HIDDEN</tempoLinkVisibility>
+    <showRecordNews>false</showRecordNews>
+    <tasksInSitesVisibility>HIDDEN</tasksInSitesVisibility>
+    <staticLogoAltText>Logo</staticLogoAltText>
+    <buttonShape>SQUARED</buttonShape>
+    <navigationBarStyle>STYLE2</navigationBarStyle>
+    <inputShape>SQUARED</inputShape>
+    <isSystem>false</isSystem>
+    <displayName>Leave Management</displayName>
+    <isStaticDisplayName>true</isStaticDisplayName>
+    <nameExprIsEvaluable>true</nameExprIsEvaluable>
+    <primaryNavLayoutType>TOPBAR</primaryNavLayoutType>
+    <buttonLabelCase>UPPERCASE</buttonLabelCase>
+    <dialogShape>SQUARED</dialogShape>
+    <pageNameCase>UPPERCASE</pageNameCase>
+    <showUserProfile>true</showUserProfile>
+    <showUserSettings>true</showUserSettings>
+    <showUserMenu>true</showUserMenu>
+  </site>
+  <roleMap>
+    <role name="site_administrator">
+      <users>
+        <userUuid>muthuraman.kannan@wns.com</userUuid>
+      </users>
+      <groups>
+        <groupUuid>b72c661a-3b28-4baa-933f-9de76974e18f</groupUuid>
+      </groups>
+    </role>
+    <role name="site_viewer">
+      <users/>
+      <groups>
+        <groupUuid>5a845c60-cf3a-447a-a554-045fea824923</groupUuid>
+      </groups>
+    </role>
+  </roleMap>
+  <history>
+    <historyInfo versionUuid="2188fdfa-320f-462e-a6db-dd806702d628"/>
+  </history>
+</siteHaul>

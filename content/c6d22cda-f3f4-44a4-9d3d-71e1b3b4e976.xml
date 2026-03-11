@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000ef65-c86c-8000-9c66-011c48011c48_1354351</versionUuid>
+    <rule>
+        <name>LM_CalculateWorkingDays</name>
+        <uuid>c6d22cda-f3f4-44a4-9d3d-71e1b3b4e976</uuid>
+        <description>Calculates the number of working days between start and end dates, excluding weekends and public holidays for leave requests.</description>
+        <parentUuid>6e1f948d-128b-4dfc-a9cf-8db86b90bd40</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>/* This expression is invalid and must be fixed before use
+ a!localVariables(
+  local!startDate: a!defaultValue(ri!startDate, today()),
+  local!endDate: a!defaultValue(ri!endDate, today()),
+  local!holidays: if(isnull(ri!publicHolidays), {}, ri!publicHolidays),
+  
+  local!totalDays: if(
+    local!endDate &gt;= local!startDate,
+    tointeger(local!endDate - local!startDate) + 1,
+    0
+  ),
+  
+  local!allDatesInRange: if(
+    local!totalDays &gt; 0,
+    a!forEach(
+      items: enumerate(local!totalDays) - 1,
+      expression: a!addDateTime(
+        startDateTime: local!startDate,
+        days: fv!item
+      )
+    ),
+    {}
+  ),
+  
+  local!workingDaysCount: length(
+    where(
+      a!forEach(
+        items: local!allDatesInRange,
+        expression: and(
+          not(or(dayofweek(fv!item) = 1, dayofweek(fv!item) = 7)),
+          not(contains(local!holidays, fv!item))
+        )
+      )
+    )
+  ),
+  
+  local!workingDaysCount
+)
+ */</definition>
+        <namedTypedValue>
+            <name>startDate</name>
+            <description>Start date of the leave request period</description>
+            <type>
+                <name>date</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>endDate</name>
+            <description>End date of the leave request period</description>
+            <type>
+                <name>date</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>publicHolidays</name>
+            <description>List of public holiday dates to exclude from working days calculation</description>
+            <type>
+                <name>Date?list</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>muthuraman.kannan@wns.com</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000ef65-c86c-8000-9c66-011c48011c48_1354351"/>
+    </history>
+</contentHaul>

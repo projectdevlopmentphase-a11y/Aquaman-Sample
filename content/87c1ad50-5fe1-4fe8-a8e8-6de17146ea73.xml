@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000ef65-c86c-8000-9c66-011c48011c48_1354336</versionUuid>
+    <rule>
+        <name>LM_CalculateBalanceDeduction</name>
+        <uuid>87c1ad50-5fe1-4fe8-a8e8-6de17146ea73</uuid>
+        <description>Computes the new leave balance after deducting approved leave days from an employee's current balance.</description>
+        <parentUuid>6e1f948d-128b-4dfc-a9cf-8db86b90bd40</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!currentBalance: a!defaultValue(ri!currentBalance, 0),
+  local!approvedDays: a!defaultValue(ri!approvedDays, 0),
+  
+  local!newBalance: local!currentBalance - local!approvedDays,
+  
+  local!newBalance
+)
+</definition>
+        <namedTypedValue>
+            <name>currentBalance</name>
+            <description>Employee's current balance for the leave type</description>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>approvedDays</name>
+            <description>Working days from the approved leave request</description>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>muthuraman.kannan@wns.com</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000ef65-c86c-8000-9c66-011c48011c48_1354336"/>
+    </history>
+</contentHaul>
