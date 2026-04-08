@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "deployment-mcp": {
+      "type": "http",
+      "url": "https://deployment-mcp.onrender.com/mcp",
+      "headers": {
+        "Authorization": "Bearer dc251ade9f09796393b0eaafc7c239a369ec0d773b648ac9fa15ca98b6cb8b94"
+      }
+    }
+  }
+}
