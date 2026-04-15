@@ -10,7 +10,35 @@
             <item>
                 <type>content</type>
                 <uuids>
+                    <uuid>5165c93d-b59e-4c2e-9033-e6011102bd40</uuid>
+                    <uuid>7fedeeff-788b-47d2-a25b-462dd4b50277</uuid>
+                    <uuid>_a-0000ef65-c86c-8000-9c66-011c48011c48_1387505</uuid>
+                    <uuid>_a-0000ef65-c86c-8000-9c66-011c48011c48_1387927</uuid>
                     <uuid>_a-0000ef65-c86c-8000-9c66-011c48011c48_1391354</uuid>
+                    <uuid>c07a5178-a6a8-49b0-9f19-c6b19175f917</uuid>
+                    <uuid>c627f5d6-fede-4948-952a-25590edbcfcf</uuid>
+                    <uuid>de7c135d-6ac8-4aca-bc16-bbdb9938a354</uuid>
+                    <uuid>e0bb1671-418d-4178-9479-dff63d7e180d</uuid>
+                </uuids>
+            </item>
+            <item>
+                <type>group</type>
+                <uuids>
+                    <uuid>113b1583-d9e1-47c9-9c5a-e5b4f7c3c964</uuid>
+                    <uuid>5e755c7c-e521-4046-948c-42b5d8c9e97f</uuid>
+                </uuids>
+            </item>
+            <item>
+                <type>processModel</type>
+                <uuids>
+                    <uuid>0002ef77-526f-8000-76f6-7f0000014e7a</uuid>
+                    <uuid>0002ef7a-8cfb-8000-776f-7f0000014e7a</uuid>
+                </uuids>
+            </item>
+            <item>
+                <type>processModelFolder</type>
+                <uuids>
+                    <uuid>49ad0baa-9124-4e22-8af7-ec4ae795ef0e</uuid>
                 </uuids>
             </item>
             <item>
@@ -21,9 +49,18 @@
                 </uuids>
             </item>
             <item>
+                <type>site</type>
+                <uuids>
+                    <uuid>aa43f5c5-a257-4c7d-bce6-316597e52c33</uuid>
+                </uuids>
+            </item>
+            <item>
                 <type>webApi</type>
                 <uuids>
                     <uuid>1e5d1c15-af91-46e9-bbdb-9241d639d38a</uuid>
+                    <uuid>48e1e523-e997-4550-8942-a15e7a394f4d</uuid>
+                    <uuid>5034dfd2-76fd-42ad-841d-5ad12b818f7a</uuid>
+                    <uuid>b618bf11-6f65-41fa-9568-54020b7d3104</uuid>
                 </uuids>
             </item>
         </patchContents>

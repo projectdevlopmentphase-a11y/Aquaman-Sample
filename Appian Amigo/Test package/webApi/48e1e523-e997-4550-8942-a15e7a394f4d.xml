@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webApiHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>cd8793b7-66e7-4b85-93cc-93ddf8d8c1d3</versionUuid>
+    <webApi a:uuid="48e1e523-e997-4550-8942-a15e7a394f4d" name="AA Return First Job">
+        <a:description></a:description>
+        <a:expression>a!localVariables(
+  /*
+  * Run the "queryRecordType()" function on the record to retrieve data for the
+  * first 50 records and store this data in a local variable named "local!records".
+  */
+  local!records: #"SYSTEM_SYSRULES_queryRecordType_v4"(
+    recordType: #"urn:appian:record-type:v1:89604624-c221-4718-80d5-f26a57836ac8",
+    fields: {
+      #"urn:appian:record-field:v1:89604624-c221-4718-80d5-f26a57836ac8/f57419c8-73ff-40de-9b87-5e856e62f5de",
+      #"urn:appian:record-field:v1:89604624-c221-4718-80d5-f26a57836ac8/c49801dd-4be5-4333-a024-030d5713d14d",
+      #"urn:appian:record-field:v1:89604624-c221-4718-80d5-f26a57836ac8/bf634175-c030-4268-8af6-789883998549"
+    },
+    filters: #"SYSTEM_SYSRULES_queryFilter"(
+      field: #"urn:appian:record-field:v1:89604624-c221-4718-80d5-f26a57836ac8/bf634175-c030-4268-8af6-789883998549",
+      operator: "is null",
+      /*value:true()*/
+    ),
+    pagingInfo: #"SYSTEM_SYSRULES_pagingInfo"(startIndex: 3, batchSize: 1
+    )
+  ).data,
+  /*
+  * Construct an HTTP response that contains the information that we just stored
+  * in "local!records".
+  */
+  #"SYSTEM_SYSRULES_httpResponse_v1"(
+    /*
+    * Set an HTTP header that tells the client that the body of the response
+    * will be JSON-encoded.
+    */
+    headers: {
+      #"SYSTEM_SYSRULES_httpHeader"(
+        name: "Content-Type",
+        value: "application/json"
+      )
+    },
+    /*
+    * JSON-encode the value of "local!records" and place it in the response body.
+    */
+    body: #"SYSTEM_SYSRULES_toJson_v1"(value: local!records)
+  )
+)</a:expression>
+        <a:urlAlias>88_Ijw</a:urlAlias>
+        <a:httpMethod>GET</a:httpMethod>
+        <a:system>false</a:system>
+        <a:requestBodyType>NONE</a:requestBodyType>
+        <a:loggingEnabled>false</a:loggingEnabled>
+    </webApi>
+    <roleMap>
+        <role name="web_api_viewer">
+            <users>
+                <userUuid>muthuServiceAccount</userUuid>
+            </users>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>WebApiRequest?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:path/>
+                <a:body/>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="cd8793b7-66e7-4b85-93cc-93ddf8d8c1d3"/>
+    </history>
+</webApiHaul>
