@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webApiHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>85d58093-75a5-4a7f-bec9-80128ca78b96</versionUuid>
+    <webApi a:uuid="b618bf11-6f65-41fa-9568-54020b7d3104" name="AA update job processing">
+        <a:description></a:description>
+        <a:expression>a!localVariables(
+  local!value: cast(
+    #"urn:appian:record-type:v1:89604624-c221-4718-80d5-f26a57836ac8",
+    #"SYSTEM_SYSRULES_fromJson_v1"(http!request.body)
+  ),
+  #"SYSTEM_SYSRULES_writeRecords_v2"(
+    records: local!value,
+    /*
+    * Construct an HTTP response to return to the caller
+    */
+    onSuccess: #"SYSTEM_SYSRULES_httpResponse_v1"(
+      statusCode: 200,
+      /*
+      * Set an HTTP header that tells the client that the body of the response will be in JSON format
+      */
+      headers: {
+        #"SYSTEM_SYSRULES_httpHeader"(name: "Content-Type", value: "application/json")
+      },
+      /*
+      *In the response body, return the records created or updated
+      */
+      body: #"SYSTEM_SYSRULES_toJson_v1"(fv!recordsUpdated)
+    ),
+    onError: #"SYSTEM_SYSRULES_httpResponse_v1"(
+      statusCode: 500,
+      headers: {
+        #"SYSTEM_SYSRULES_httpHeader"(name: "Content-Type", value: "application/json")
+      },
+      body: #"SYSTEM_SYSRULES_toJson_v1"(
+        a!map(
+          message: "Write request has failed",
+          error: fv!error
+        )
+      )
+    )
+  )
+)</a:expression>
+        <a:urlAlias>OrdoDA</a:urlAlias>
+        <a:httpMethod>POST</a:httpMethod>
+        <a:system>false</a:system>
+        <a:requestBodyType>NONE</a:requestBodyType>
+        <a:loggingEnabled>false</a:loggingEnabled>
+    </webApi>
+    <roleMap>
+        <role name="web_api_administrator">
+            <users>
+                <userUuid>muthuServiceAccount</userUuid>
+            </users>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>WebApiRequest?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:path/>
+                <a:headers>
+                    <a:name>Content-Type</a:name>
+                    <a:value>application/json</a:value>
+                </a:headers>
+                <a:body>{}</a:body>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="85d58093-75a5-4a7f-bec9-80128ca78b96"/>
+    </history>
+</webApiHaul>
