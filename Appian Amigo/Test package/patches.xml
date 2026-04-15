@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<applicationPatches>
+    <applicationPatch>
+        <applicationUuid>14f94a0a-0383-4706-a054-eb66d9154c02</applicationUuid>
+        <packageInfo>
+            <url></url>
+            <name>Test package</name>
+        </packageInfo>
+        <patchContents>
+            <item>
+                <type>content</type>
+                <uuids>
+                    <uuid>_a-0000ef65-c86c-8000-9c66-011c48011c48_1391354</uuid>
+                </uuids>
+            </item>
+            <item>
+                <type>recordType</type>
+                <uuids>
+                    <uuid>21ee0347-f5fd-4ba8-b3d4-432820a5f1f9</uuid>
+                    <uuid>89604624-c221-4718-80d5-f26a57836ac8</uuid>
+                </uuids>
+            </item>
+            <item>
+                <type>webApi</type>
+                <uuids>
+                    <uuid>1e5d1c15-af91-46e9-bbdb-9241d639d38a</uuid>
+                </uuids>
+            </item>
+        </patchContents>
+    </applicationPatch>
+</applicationPatches>

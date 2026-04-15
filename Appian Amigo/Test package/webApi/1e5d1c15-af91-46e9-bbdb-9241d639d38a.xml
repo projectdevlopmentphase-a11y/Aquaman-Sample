@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webApiHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>130c391f-5f51-4d57-9dde-98f639bbae82</versionUuid>
+    <webApi a:uuid="1e5d1c15-af91-46e9-bbdb-9241d639d38a" name="AA Write to Requirements">
+        <a:description></a:description>
+        <a:expression>#"SYSTEM_SYSRULES_startProcess3"(
+  processModel: #"_a-0000ef65-c86c-8000-9c66-011c48011c48_1391354",
+
+  /* A dictionary or map of parameters passed to the process model */
+  processParameters: #"SYSTEM_SYSRULES_fromJson_v1"(http!request.body),
+  isSynchronous: false(),
+
+  /* This expression will run when the process is started (when run asynchronously) or completed (when run synchronously) */
+  onSuccess: #"SYSTEM_SYSRULES_httpResponse_v1"(
+    statusCode: 200,
+    headers: {
+      #"SYSTEM_SYSRULES_httpHeader"(
+        name: "Content-Type",
+        value: "application/json"
+      )
+    },
+    body: if(
+      a!isNotNullOrEmpty(fv!processInfo),
+      #"SYSTEM_SYSRULES_toJson_v1"(fv!processInfo),
+      null()
+    )
+  ),
+
+  /* This expression will run if the process fails to start */
+  onError: #"SYSTEM_SYSRULES_httpResponse_v1"(
+    statusCode: 500,
+    headers: {
+      #"SYSTEM_SYSRULES_httpHeader"(
+        name: "Content-Type",
+        value: "application/json"
+      )
+    },
+    body: #"SYSTEM_SYSRULES_toJson_v1"(
+      {
+        error: "There was an error starting the process"
+      }
+    )
+  ),
+
+  /* If the process is started synchronously, this expression will run if the process does not complete in 30 seconds */
+  onIncomplete: #"SYSTEM_SYSRULES_httpResponse_v1"(
+    statusCode: 504,
+    headers: {
+      #"SYSTEM_SYSRULES_httpHeader"(
+        name: "Content-Type",
+        value: "application/json"
+      )
+    },
+    body: #"SYSTEM_SYSRULES_toJson_v1"(fv!processInfo)
+  )
+)</a:expression>
+        <a:urlAlias>warfaQ</a:urlAlias>
+        <a:httpMethod>POST</a:httpMethod>
+        <a:system>false</a:system>
+        <a:requestBodyType>NONE</a:requestBodyType>
+        <a:loggingEnabled>false</a:loggingEnabled>
+    </webApi>
+    <roleMap>
+        <role name="web_api_administrator">
+            <users/>
+            <groups>
+                <groupUuid>5e755c7c-e521-4046-948c-42b5d8c9e97f</groupUuid>
+            </groups>
+        </role>
+        <role name="web_api_viewer">
+            <users/>
+            <groups>
+                <groupUuid>113b1583-d9e1-47c9-9c5a-e5b4f7c3c964</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>WebApiRequest?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:path/>
+                <a:headers>
+                    <a:name>Content-Type</a:name>
+                    <a:value>application/json</a:value>
+                </a:headers>
+                <a:body>{}</a:body>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="130c391f-5f51-4d57-9dde-98f639bbae82"/>
+    </history>
+</webApiHaul>
